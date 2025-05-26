@@ -66,11 +66,3 @@ jobs:
           echo "Notify Team: ${{ github.event.inputs.notify_team }}"
           echo "Changelog Path: ${{ github.event.inputs.changelog_path }}"
           echo "Docker Image Tag: ${{ github.event.inputs.docker_image_tag }}"
-
-      - name: Conditional logic example
-        if: ${{ github.event.inputs.rollback == 'true' }}
-        run: echo "Running rollback process..."
-
-      - name: Deploy Application
-        run: |
-          echo "Deploying version ${{ github.event.inputs.version }} to ${{ github.event.inputs.environment }} in region ${{ github.event.inputs.region }}"
