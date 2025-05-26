@@ -1,9 +1,9 @@
-name: Run Shell Script Every 5 Minutes
+name: Run Shell Script Every 1 Minute
 
 on:
   schedule:
-    # Runs at every 5th minute
-    - cron: '*/5 * * * *'
+    - cron: '* * * * *'  # Every 1 minute
+  
 
 jobs:
   run-shell:
