@@ -3,7 +3,15 @@ name: Advanced Deployment Workflow
 on:
   workflow_dispatch:
     inputs:
-      environment:
+      environments:
+        description: "Select the environment"
+        required: true
+        type: choice
+        options:
+          - development
+          - staging
+          - production
+      default_environment:
         description: 'Target environment (dev, staging, prod)'
         required: true
         default: 'staging'
