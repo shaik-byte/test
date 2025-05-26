@@ -18,10 +18,6 @@ on:
       version:
         description: 'Application version to deploy (e.g., v1.0.2)'
         required: true
-      debug:
-        description: 'Enable debug mode (true/false)'
-        required: false
-        default: 'false'
       region:
         description: 'AWS region'
         required: false
