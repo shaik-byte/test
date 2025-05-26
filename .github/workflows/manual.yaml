@@ -46,7 +46,22 @@ on:
         description: 'Docker image tag to use'
         required: false
         default: 'latest'
-
+      rollback2:
+        description: 'Trigger rollback to previous stable version'
+        required: false
+        default: 'false'
+      notify_team2:
+        description: 'Send notification to team (true/false)'
+        required: false
+        default: 'true'
+      changelog_path2:
+        description: 'Path to changelog file'
+        required: false
+        default: 'CHANGELOG.md'
+      docker_image_tag2:
+        description: 'Docker image tag to use'
+        required: false
+        default: 'latest' 
 jobs:
   deploy:
     runs-on: ubuntu-latest
