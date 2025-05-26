@@ -1,16 +1,72 @@
-name: Manual Trigger
+name: Advanced Deployment Workflow
 
 on:
   workflow_dispatch:
     inputs:
       environment:
-        description: 'Deployment environment'
+        description: 'Target environment (dev, staging, prod)'
         required: true
         default: 'staging'
+      version:
+        description: 'Application version to deploy (e.g., v1.0.2)'
+        required: true
+      debug:
+        description: 'Enable debug mode (true/false)'
+        required: false
+        default: 'false'
+      region:
+        description: 'AWS region'
+        required: false
+        default: 'us-east-1'
+      dry_run:
+        description: 'Perform a dry run without actual deployment'
+        required: false
+        default: 'false'
+      deploy_branch:
+        description: 'Git branch to deploy from'
+        required: false
+        default: 'main'
+      rollback:
+        description: 'Trigger rollback to previous stable version'
+        required: false
+        default: 'false'
+      notify_team:
+        description: 'Send notification to team (true/false)'
+        required: false
+        default: 'true'
+      changelog_path:
+        description: 'Path to changelog file'
+        required: false
+        default: 'CHANGELOG.md'
+      docker_image_tag:
+        description: 'Docker image tag to use'
+        required: false
+        default: 'latest'
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Print environment
-        run: echo "Deploying to ${{ github.event.inputs.environment }}"
+      - name: Checkout source
+        uses: actions/checkout@v3
+
+      - name: Print input values
+        run: |
+          echo "Environment: ${{ github.event.inputs.environment }}"
+          echo "Version: ${{ github.event.inputs.version }}"
+          echo "Debug Mode: ${{ github.event.inputs.debug }}"
+          echo "AWS Region: ${{ github.event.inputs.region }}"
+          echo "Dry Run: ${{ github.event.inputs.dry_run }}"
+          echo "Deploy Branch: ${{ github.event.inputs.deploy_branch }}"
+          echo "Rollback: ${{ github.event.inputs.rollback }}"
+          echo "Notify Team: ${{ github.event.inputs.notify_team }}"
+          echo "Changelog Path: ${{ github.event.inputs.changelog_path }}"
+          echo "Docker Image Tag: ${{ github.event.inputs.docker_image_tag }}"
+
+      - name: Conditional logic example
+        if: ${{ github.event.inputs.rollback == 'true' }}
+        run: echo "Running rollback process..."
+
+      - name: Deploy Application
+        run: |
+          echo "Deploying version ${{ github.event.inputs.version }} to ${{ github.event.inputs.environment }} in region ${{ github.event.inputs.region }}"
