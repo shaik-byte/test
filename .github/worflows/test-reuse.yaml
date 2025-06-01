@@ -1,0 +1,13 @@
+name: Caller Workflow for Addition
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  call-addition:
+    uses: shaik-byte/traineee/.github/workflows/reusable.yml@main
+    with:
+      number1: 10
+      number2: 25
