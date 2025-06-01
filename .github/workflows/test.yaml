@@ -11,4 +11,4 @@ jobs:
     with:
       number1: 10
       number2: 25
-      runs-on: ubuntu-latest
+      
