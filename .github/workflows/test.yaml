@@ -6,15 +6,15 @@ on:
       - main
 
 jobs:
-  call-date:
-    uses: shaik-byte/traineee/.github/workflows/reusable.yml@main
+  # call-date:
+  #   uses: shaik-byte/traineee/.github/workflows/reusable.yml@main
 
 
     
-  # call-addition:
-  #   uses: shaik-byte/traineee/.github/workflows/reusable.yml@main
-  #   with:
-  #     number1: 10
-  #     number2: 25
-  #     runner: ubuntu-latest
+  call-addition:
+    uses: shaik-byte/traineee/.github/workflows/reusable.yml@main
+    with:
+      number1: 100
+      number2: 250
+      # runner: ubuntu-latest
       
