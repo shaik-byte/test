@@ -1,4 +1,4 @@
-name: Caller Workflow for Addition
+name: Caller Workflow from trainee repository
 
 on:
   push:
@@ -6,10 +6,15 @@ on:
       - main
 
 jobs:
-  call-addition:
-    uses: shaik-byte/traineee/.github/workflows/reusable.yml@main
-    with:
-      number1: 10
-      number2: 25
-      runner: ubuntu-latest
+  call-date:
+    uses: ./.github/workflows/reusable.yml
+
+
+    
+  # call-addition:
+  #   uses: shaik-byte/traineee/.github/workflows/reusable.yml@main
+  #   with:
+  #     number1: 10
+  #     number2: 25
+  #     runner: ubuntu-latest
       
