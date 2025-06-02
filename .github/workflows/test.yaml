@@ -7,7 +7,7 @@ on:
 
 jobs:
   call-date:
-    uses: ./.github/workflows/reusable.yml
+    uses: shaik-byte/traineee/.github/workflows/reusable.yml@main
 
 
     
